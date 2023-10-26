@@ -1,1 +1,38 @@
-<p>productos-form works!</p>
+<div class="row m-5">
+    <div class="col-md-4 offset-md-4">
+        <div class="card">
+            <div class="card-header text-center">
+                <p class="texto"><strong>NUEVO PRODUCTO</strong></p>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="form-crear">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-control" name="nombre" >
+                    </div>
+                    <div class="form-crear">
+                        <label class="form-label">Imagen</label>
+                        <input type="email" class="form-control" name="imagen" >
+                    </div>
+                    <div class="form-crear">
+                        <label class="form-label">Detalles del producto</label>
+                        <input type="text" class="form-control" name="detalles">
+                    </div>
+                    <div class="form-crear">
+                        <label class="form-label">Precio</label>
+                        <input type="text" class="form-control" name="precio">
+                    </div>
+                    <div class="form-crear">
+                        <label class="form-label">Cantidad</label>
+                        <input type="text" class="form-control" name="cantidad">
+                    </div>
+                    <div class="form-crear">
+                        <label class="form-label">Categoria</label>
+                        <input type="text" class="form-control" name="categoria">
+                    </div>
+                    <button type="submit" class="btn btn-primary" (click)="guardarProducto()">Crear Cuenta</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

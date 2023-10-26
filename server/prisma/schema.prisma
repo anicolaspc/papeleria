@@ -23,5 +23,5 @@ model usuario {
   usuario    String @db.VarChar(10)
   correo     String @db.VarChar(50)
   contrasena String @db.VarChar(255)
-  telefono   Int
+  telefono   String @db.VarChar(15)
 }

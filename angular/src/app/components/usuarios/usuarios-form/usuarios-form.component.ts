@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-//import { FormBuilder } from '@angular/forms';
-import { Usuario } from 'src/app/models/usuario';
+import { FormsModule } from '@angular/forms';
+import { Usuario } from '../../../models/usuario';
 import { UsuariosService } from 'src/app/services/usuarios/usuarios.service';
 
 @Component({
@@ -15,14 +15,23 @@ export class UsuariosFormComponent {
     nombre: '',
     usuario: '',
     correo: '',
-    contrasena: '', 
-    telefono: 0
+    contrasena: '',
+    telefono: ''
   }
 
-  constructor(private usuariosService: UsuariosService){ }
-  
-  guardarUsuario(){
-    console.log(this.usuario)
+  constructor(private usuariosService: UsuariosService) { }
+
+  ngOnInit() {
+
   }
-  
+
+  guardarUsuario() {
+    this.usuariosService.guardar(this.usuario).subscribe(
+      res => {
+        console.log(res)
+      },
+      err => console.error(err)
+    )
+  }
+
 }
