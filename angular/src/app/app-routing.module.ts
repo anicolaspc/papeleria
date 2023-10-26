@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ProductosListComponent } from './components/productos/productos-list/productos-list.component'
 import { ProductosFormComponent } from './components/productos/productos-form/productos-form.component'
-import { UsuariosListComponent } from './components/usuarios/usuarios-list/usuarios-list.component'
+import { UsuariosLogComponent } from './components/usuarios/usuarios-log/usuarios-log.component';
 import { UsuariosFormComponent } from './components/usuarios/usuarios-form/usuarios-form.component'
 import { ConocenosComponent } from './components/conocenos/conocenos.component'
 
@@ -24,7 +24,7 @@ const routes: Routes = [
   },
   {
     path: 'usuarios',
-    component: UsuariosListComponent
+    component: UsuariosLogComponent
   },
   {
     path: 'usuarios/agregar',

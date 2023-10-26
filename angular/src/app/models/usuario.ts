@@ -5,4 +5,9 @@ export interface Usuario{
     correo?: string; 
     contrasena?: string; 
     telefono?: number
+} 
+
+export interface Logear{
+    usuario: string;
+    contrasena: string
 }
