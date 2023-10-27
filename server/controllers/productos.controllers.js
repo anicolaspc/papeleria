@@ -16,10 +16,19 @@ controllersProductos.getOne = async (req, res) => {
 }
 
 controllersProductos.create = async (req, res) => {
+    delete req.body.id
+
+    const data = {
+        imagen: req.body.imagen,
+        nombre: req.body.nombre,
+        detalles: req.body.detalles,
+        precio: parseInt(req.body.precio),
+        cantidad: parseInt(req.body.cantidad),
+        categoria: req.body.categoria
+    }
+
     cuerpo.simplificar(req, res, await prisma.producto.create({
-        where: {
-            'id': parseInt(req.params.id)
-        }, data: req.body
+        data
     }))
 }
 

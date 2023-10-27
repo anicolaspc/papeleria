@@ -11,7 +11,7 @@ const router = Router()
 
 function removeExtension(file) {
     return file.split('.').shift()
-}
+} 
 
 fs.readdirSync(__dirname).filter((file) => {
     if (removeExtension !== "app") {
