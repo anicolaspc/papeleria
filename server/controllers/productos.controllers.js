@@ -17,7 +17,6 @@ controllersProductos.getOne = async (req, res) => {
 
 controllersProductos.create = async (req, res) => {
     delete req.body.id
-
     const data = {
         imagen: req.body.imagen,
         nombre: req.body.nombre,
@@ -26,7 +25,6 @@ controllersProductos.create = async (req, res) => {
         cantidad: parseInt(req.body.cantidad),
         categoria: req.body.categoria
     }
-
     cuerpo.simplificar(req, res, await prisma.producto.create({
         data
     }))

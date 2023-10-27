@@ -1,13 +1,22 @@
-export interface Usuario{
-    id?: number;
-    nombre?: string;
-    usuario?: string;
-    correo?: string; 
-    contrasena?: string; 
+export class Usuario {
+    id?: number
+    nombre?: string
+    usuario?: string
+    correo?: string
+    contrasena?: string
     telefono?: string
-} 
 
-export interface Logear{
+    constructor() {
+        this.id = 0
+        this.nombre = ''
+        this.usuario = ''
+        this.correo = ''
+        this.contrasena = ''
+        this.telefono = ''
+    }
+}
+
+export interface Logear {
     usuario: string;
     contrasena: string
 }

@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Usuario } from '../../../models/usuario';
 import { UsuariosService } from 'src/app/services/usuarios/usuarios.service';
+import { Router } from '@angular/router';
+import { Producto } from 'src/app/models/producto';
 
 @Component({
   selector: 'app-usuarios-form',
@@ -10,28 +12,25 @@ import { UsuariosService } from 'src/app/services/usuarios/usuarios.service';
 })
 export class UsuariosFormComponent {
 
-  usuario: Usuario = {
-    id: 0,
-    nombre: '',
-    usuario: '',
-    correo: '',
-    contrasena: '',
-    telefono: ''
-  }
+  usuario: Usuario = new Usuario()
 
-  constructor(private usuariosService: UsuariosService) { }
+  constructor(
+    private usuariosService: UsuariosService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
 
   }
 
   guardarUsuario() {
-    this.usuariosService.guardar(this.usuario).subscribe(
-      res => {
-        console.log(res)
-      },
-      err => console.error(err)
-    )
+    const confirmar = confirm('¿Desea Guardar Nuevo Usuario?')
+    if (confirmar) {
+      this.usuariosService.guardar(this.usuario).subscribe(usuario => {
+        this.usuario = usuario
+        this.router.navigateByUrl('/productos')
+      })
+    }
   }
 
 }

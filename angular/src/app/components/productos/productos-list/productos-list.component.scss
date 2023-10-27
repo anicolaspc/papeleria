@@ -1,17 +1,27 @@
-
 .row {
     background-color: red;
-    height: 50vh;
+
 
     .card {
         background-color: yellow;
-        height: 50vh;
+        height: 95%;
+        margin: 5%;
 
-        .imagen{
-            height: 200px;
-            width: 200px;
-            object-fit: cover;
+        .card-header {
+            h1 {
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            background-color: blue;
+            height: 70%;
+
+            .imagen {
+                object-fit: scale-down;
+                height: 70%;
+                width: 80%;
+            }
         }
-    }
-}        
 
+    }
+}

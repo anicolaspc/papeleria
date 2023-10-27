@@ -3,7 +3,7 @@ export class Producto {
     nombre?: string;
     imagen?: string;
     detalles?: string;
-    precio?: number;
+    precio?: string;
     cantidad?: number;
     categoria?: string;
 
@@ -12,7 +12,7 @@ export class Producto {
         this.nombre = ''
         this.imagen = ''
         this.detalles = ''
-        this.precio = 0
+        this.precio = ''
         this.cantidad = 0
         this.categoria = ''
     }

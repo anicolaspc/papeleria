@@ -16,8 +16,16 @@ controllersUsuasrios.getOne = async (req, res) => {
 }
 
 controllersUsuasrios.create = async (req, res) => {
+    delete req.body.id
+    const data = {
+        nombre: req.body.nombre,
+        usuario: req.body.usuario,
+        correo: req.body.correo,
+        contrasena: req.body.contrasena,
+        telefono: req.body.telefono
+    }
     cuerpo.simplificar(req, res, await prisma.usuario.create({
-        data: req.body
+        data
     }))
 }
 
