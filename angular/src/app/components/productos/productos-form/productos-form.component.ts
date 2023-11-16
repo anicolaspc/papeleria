@@ -15,19 +15,28 @@ export class ProductosFormComponent implements OnInit {
   constructor(
     private productosServices: ProductosService,
     private router: Router
-    ) { }
+  ) { }
 
   ngOnInit(): void {
   }
 
   guardarProducto(): void {
-   const confirmar = confirm('¿Desea Guardar Producto?')
-   if (confirmar) {
-    this.productosServices.guardar(this.producto).subscribe(producto => {
-      this.producto = producto
-      this.router.navigateByUrl('/productos')
-    })
-   }
-
+    const confirmar = confirm('¿Desea Guardar Producto?')
+    if (confirmar) {
+      this.productosServices.guardar(this.producto).subscribe(producto => {
+        this.producto = producto
+        this.router.navigateByUrl('/productos')
+      })
+    }
   }
+
+  actualizarProducto(id: string): void {
+    const confirmar = confirm('¿Desea Actualizar Producto?')
+    if (confirmar) {
+       this.productosServices.actualizar(id, this.producto).subscribe(producto => {
+         this.producto = producto
+         this.router.navigateByUrl('/productos')
+       })
+    }
+   }
 }

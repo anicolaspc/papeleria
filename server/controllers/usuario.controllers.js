@@ -7,7 +7,7 @@ controllersUsuasrios.get = async (req, res) => {
     cuerpo.simplificar(req, res, await prisma.usuario.findMany())
 }
 
-controllersUsuasrios.getOne = async (req, res) => {
+controllersUsuasrios.getById = async (req, res) => {
     cuerpo.simplificar(req, res, await prisma.usuario.findUnique({
         where: {
             'id': parseInt(req.params.id)
@@ -15,7 +15,23 @@ controllersUsuasrios.getOne = async (req, res) => {
     }))
 }
 
-controllersUsuasrios.create = async (req, res) => {
+controllersUsuasrios.getByNombre = async (req, res) => {
+    cuerpo.simplificar(req, res, await prisma.usuario.findMany({
+        where: {
+            'nombre': req.params.nombre
+        }
+    }))
+}
+
+controllersUsuasrios.getByUsuario = async (req, res) => {
+    cuerpo.simplificar(req, res, await prisma.usuario.findUnique({
+        where: {
+            'usuario': req.params.usuario
+        }
+    }))
+}
+
+controllersUsuasrios.post = async (req, res) => {
     delete req.body.id
     const data = {
         nombre: req.body.nombre,
@@ -29,7 +45,7 @@ controllersUsuasrios.create = async (req, res) => {
     }))
 }
 
-controllersUsuasrios.put = async (req, res) => {
+controllersUsuasrios.putById = async (req, res) => {
     cuerpo.simplificar(req, res, await prisma.usuario.update({
         where: {
             'id': parseInt(req.params.id)
@@ -37,10 +53,42 @@ controllersUsuasrios.put = async (req, res) => {
     }))
 }
 
-controllersUsuasrios.delete = async (req, res) => {
+controllersUsuasrios.putByNombre = async (req, res) => {
+    cuerpo.simplificar(req, res, await prisma.usuario.update({
+        where: {
+            'nombre': req.params.nombre
+        }, data: req.body
+    }))
+}
+
+controllersUsuasrios.putByUsuario = async (req, res) => {
+    cuerpo.simplificar(req, res, await prisma.usuario.update({
+        where: {
+            'usuario': req.params.usuario
+        }, data: req.body
+    }))
+}
+
+controllersUsuasrios.deleteById = async (req, res) => {
     cuerpo.simplificar(req, res, await prisma.usuario.delete({
         where: {
             'id': parseInt(req.params.id)
+        }
+    }))
+}
+
+controllersUsuasrios.deleteByNombre = async (req, res) => {
+    cuerpo.simplificar(req, res, await prisma.usuario.delete({
+        where: {
+            'nombre': req.params.nombre
+        }
+    }))
+}
+
+controllersUsuasrios.deleteByUsuario = async (req, res) => {
+    cuerpo.simplificar(req, res, await prisma.usuario.delete({
+        where: {
+            'usuario': req.params.usuario
         }
     }))
 }
