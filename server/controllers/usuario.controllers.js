@@ -24,7 +24,7 @@ controllersUsuasrios.getByNombre = async (req, res) => {
 }
 
 controllersUsuasrios.getByUsuario = async (req, res) => {
-    cuerpo.simplificar(req, res, await prisma.usuario.findUnique({
+    cuerpo.simplificar(req, res, await prisma.usuario.findMany({
         where: {
             'usuario': req.params.usuario
         }
