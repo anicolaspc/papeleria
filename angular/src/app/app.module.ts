@@ -11,7 +11,9 @@ import { ProductosListComponent } from './components/productos/productos-list/pr
 import { ProductosFormComponent } from './components/productos/productos-form/productos-form.component';
 import { ConocenosComponent } from './components/conocenos/conocenos.component';
 import { ReactiveFormsModule } from '@angular/forms'
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './components/footer/footer.component';
+import { ProductoComponent } from './components/productos/producto/producto.component'
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { FormsModule } from '@angular/forms'
     ProductosListComponent,
     ProductosFormComponent,
     ConocenosComponent,
+    FooterComponent,
+    ProductoComponent,
   ],
   imports: [
     BrowserModule,

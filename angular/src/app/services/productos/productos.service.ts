@@ -12,11 +12,19 @@ export class ProductosService {
   constructor(private http: HttpClient) { }
 
   obtener() {
-    return this.http.get(`${this.api_url}`)
+    return this.http.get(`${this.api_url}/get`)
   }
 
-  buscar(id: string) {
-    return this.http.get(`${this.api_url}/${id}`)
+  buscarId(id: string) {
+    return this.http.get(`${this.api_url}/get/id/${id}`)
+  }
+  
+  buscarNombre(nombre: string) {
+    return this.http.get(`${this.api_url}/get/nombre/${nombre}`)
+  }
+  
+  buscarCategoria(categoria: string) {
+    return this.http.get(`${this.api_url}/get/categoria/${categoria}`)
   }
 
   guardar(producto: Producto){

@@ -15,8 +15,3 @@ export class Usuario {
         this.telefono = ''
     }
 }
-
-export interface Logear {
-    usuario: string;
-    contrasena: string
-}
