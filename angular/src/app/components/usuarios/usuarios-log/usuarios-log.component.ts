@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { UsuariosService } from 'src/app/services/usuarios/usuarios.service';
 
 @Component({
   selector: 'app-usuarios-log',
@@ -9,9 +10,12 @@ import { FormBuilder } from '@angular/forms';
 
 export class UsuariosLogComponent {
 
+  constructor(private usuariosService: UsuariosService) { }
 
-
-  constructor(private formBuilder: FormBuilder) { }
-
+  iniciar(){
+    const usuario = (document.querySelector('#Usuario') as HTMLInputElement).value
+    const contrasena = (document.querySelector('#Contrasena') as HTMLInputElement).value
+          console.log(usuario, contrasena)
+    
+  }
 }
-

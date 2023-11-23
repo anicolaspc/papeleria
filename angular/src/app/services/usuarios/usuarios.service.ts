@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Usuario } from '../../models/usuario'
+import { Observable } from 'rxjs'
 
 @Injectable({
   providedIn: 'root'
@@ -19,16 +20,15 @@ export class UsuariosService {
     return this.http.get(`${this.api_url}/${id}`)
   }
 
-  guardar(usuario: Usuario){
-    return this.http.post(`${this.api_url}`, usuario)
+  guardar(usuario: Usuario) {
+    return this.http.post(`${this.api_url}/post`, usuario)
   }
 
-  borrar(id: string){
+  borrar(id: string) {
     return this.http.delete(`${this.api_url}/${id}`)
   }
 
-  actualizar(id: string, actualizar: Usuario){
+  actualizar(id: string, actualizar: Usuario) {
     return this.http.put(`${this.api_url}/${id}`, actualizar)
   }
-
 }
