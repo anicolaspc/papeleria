@@ -20,8 +20,8 @@
                     <a class="nav-link" routerLink="conocenos" routerLinkActive="active">Conocenos</a>
                 </li>
             </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <form class="d-flex" (submit)="Buscar()">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="buscar" [(ngModel)]="buscar">
                 <button class="btn btn-outline-success" type="submit">Buscar</button>
             </form>
         </div>

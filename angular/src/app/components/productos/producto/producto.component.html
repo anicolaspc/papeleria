@@ -1,1 +1,22 @@
-<p>producto works!</p>
+<div class="col-md-3" *ngIf="productos">
+    <h1></h1>
+    <div class="card tex-center">
+        <img class="imagen" src="{{producto.imagen}}" alt={{producto.nombre}}>
+    </div>
+    <div class="card_body">
+        <h3>{{producto.nombre}}</h3>
+        <p>{{producto.detalles }}</p>
+    </div>
+</div>
+<div *ngIf="!productos">
+    <div class="col-md-3" *ngFor="let producto of producto">
+        <h1></h1>
+        <div class="card text-center">
+            <img class="imagen" src="{{producto.imagen}}" alt="{{producto.nombre}}">
+        </div>
+        <div class="card-body">
+            <h3>{{producto.nombre}}</h3>
+            <p>{{producto.detalles}}</p>
+        </div>
+    </div>
+</div>

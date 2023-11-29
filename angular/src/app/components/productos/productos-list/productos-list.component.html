@@ -5,6 +5,7 @@
             <h1>{{producto.nombre}}</h1>
             <ul style="list-style: none;">
                 <li>{{producto.precio | currency: 'COP'}}</li>
+                <a [routerLink]="['/producto', producto.id]">Ver detalles</a>
             </ul>
         </div>
     </div>

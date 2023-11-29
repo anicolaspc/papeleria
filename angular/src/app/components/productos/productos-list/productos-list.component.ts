@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Router } from '@angular/router';
 import { ProductosService } from '../../../services/productos/productos.service'
 
 @Component({
@@ -10,7 +10,10 @@ import { ProductosService } from '../../../services/productos/productos.service'
 export class ProductosListComponent {
 
   productos: any = []
-  constructor(private productosServices: ProductosService) { }
+  constructor(
+    private productosServices: ProductosService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.productosServices.obtener().subscribe(
@@ -21,5 +24,3 @@ export class ProductosListComponent {
     )
   }
 }
-
-

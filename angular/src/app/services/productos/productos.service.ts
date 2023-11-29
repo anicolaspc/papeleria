@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Producto } from '../../models/producto'
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductosService {
 
+  private productosSubject = new BehaviorSubject<any[]>([])
+  productos$ = this.productosSubject.asObservable()
   api_url = 'http://localhost:3000/productos'
 
   constructor(private http: HttpClient) { }
@@ -37,6 +40,10 @@ export class ProductosService {
 
   actualizar(id: string, actualizar: Producto){
     return this.http.put(`${this.api_url}/${id}`, actualizar)
+  }
+
+  compartir(productos: any[]){
+    this.productosSubject.next(productos);
   }
 
 }
